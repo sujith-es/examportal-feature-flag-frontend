@@ -1,0 +1,72 @@
+<div class="bootstrap-wrapper">
+  <!-- {{response | json}} -->
+  <h1 class="mt20">Available Quizzes</h1>
+  <div *ngIf="response?.match && response?.value=='feature-V-youtube'">
+    <h1>Start the video.</h1>
+    <mat-tab-group preserveContent>
+        <mat-tab label="First">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xfwlbt3QZrM" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </mat-tab>
+    </mat-tab-group>  
+    <br />
+    <br />     
+</div>
+<section *ngIf="response?.value=='feature-vart-red-color'">
+  <div class="example-label">NEW Button Color!</div>
+  <div class="example-button-row">
+      <button mat-raised-button color="warn">Warn</button>
+  </div>
+</section> 
+<section>
+  <div class="example-label">NEW Button Color!</div>
+  <div class="example-button-row">
+      <button mat-raised-button color="primary">Primary</button>
+  </div>
+</section>
+  <div class="container-fluid" *!ngIf="response?.match && response?.value=='feature-vart-red-color'">
+    <h1 class="mt20">Available Quizzes</h1>
+    <div class="row mt20" *ngIf="quizzes">
+      <div class="col-md-4" *ngFor="let q of quizzes">
+        <mat-card class="mb20">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>
+              {{ q.title }}
+            </mat-card-title>
+            <mat-card-subtitle>
+              {{ q.category.title }}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="truncate">{{ q.description }}</p>
+          </mat-card-content>
+          <mat-card-action>
+            <button mat-button color="primary">View</button>
+            <button
+              mat-button
+              color="accent"
+              [routerLink]="'/user-dashboard/instructions/' + q.qId"
+              class="ml10"
+            >
+              Start
+            </button>
+            <button mat-button color="accent">
+              Questions :{{ q.numberOfQuestions }}
+            </button>
+            <button mat-button color="accent">M.M :{{ q.maxMarks }}</button>
+          </mat-card-action>
+        </mat-card>
+      </div>
+
+      <div class="col-md-12" *ngIf="quizzes.length == 0">
+        <mat-card>
+          <mat-card-content>
+            <h1>No data in this category</h1>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

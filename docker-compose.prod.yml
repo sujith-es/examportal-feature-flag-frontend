@@ -1,0 +1,8 @@
+version: '3.9' # optional since v1.27.0
+services:
+  exam-portal-frontend:
+    build:
+      # context: src
+      dockerfile: Dockerfile
+    ports:
+      - '80:80'

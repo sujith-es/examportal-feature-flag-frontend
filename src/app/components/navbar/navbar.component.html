@@ -1,0 +1,55 @@
+<!-- <h1>this is navbar</h1> -->
+<mat-toolbar color="accent">
+  <a
+    routerLink="/"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu_book</mat-icon>
+  </a>
+  <span>Exam Portal</span>
+  <!-- <img height="60%" src="../../../assets/exams_portal_logo.svg" alt="Exam Portal"/>   -->
+
+  <span class="example-spacer"></span>
+  <div text-align ="center" *ngIf="isLoggedIn && user">{{ environmentName }}</div>
+  <a
+    *ngIf="!isLoggedIn"
+    [routerLink]="'/login'"
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
+    Login
+  </a>
+
+  <a
+    *ngIf="!isLoggedIn"
+    [routerLink]="'/signup'"
+    mat-icon-button
+    class="example-icon favorite-icon mr20 ml20"
+    aria-label="Example icon-button with heart icon"
+  >
+    Register
+  </a>
+
+  <a
+    (click)="logout()"
+    *ngIf="isLoggedIn"
+    mat-icon-button
+    class="example-icon favorite-icon mr20 ml20"
+    aria-label="Example icon-button with heart icon"
+  >
+    Logout
+  </a>
+
+  <button
+    *ngIf="isLoggedIn && user"
+    class="example-icon favorite-icon ml20"
+    mat-button
+    routerLink="/profile"
+    aria-label="Example icon-button with heart icon"
+  >
+    {{ user.email }}
+  </button>
+</mat-toolbar>

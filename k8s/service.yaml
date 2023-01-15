@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: exam-portal-ui
+  name: exam-portal-ui
+spec:
+  ports:
+  - name: exam-portal-ui
+    port: 8083
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: exam-portal-ui
+  type: NodePort
+status:
+  loadBalancer: {}

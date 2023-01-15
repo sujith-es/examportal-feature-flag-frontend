@@ -1,0 +1,29 @@
+<h1>Welcome to ADMIN Panel</h1>
+<!-- {{ response | json }} -->
+
+
+<div *ngIf="response?.match && isAdmin==true">
+    <p>Start the video.</p>
+    <mat-tab-group preserveContent>
+        <mat-tab label="First">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xfwlbt3QZrM" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </mat-tab>
+    </mat-tab-group>
+    <button mat-button *ngIf="response?.value=='feature-vart-blue-color'" color="primary">{{response.value}}</button>
+    <br />
+    <br />
+    <section *ngIf="response?.value=='feature-vart-red-color'">
+        <div class="example-label">NEW Button Color!</div>
+        <div class="example-button-row">
+            <button mat-raised-button color="warn">Warn</button>
+        </div>
+    </section>
+    <section *ngIf="response?.value=='feature-vart-blue-color'">
+        <div class="example-label">NEW Button Color!</div>
+        <div class="example-button-row">
+            <button mat-raised-button color="primary">Primary</button>
+        </div>
+    </section>
+</div>

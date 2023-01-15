@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: exam-portal-ui
+  name: exam-portal-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exam-portal-ui
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: exam-portal-ui
+    spec:
+      containers:
+      - image: sujithes/exam-portal-ui:1
+        name: exam-portal-ui
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1Gi
+          requests:
+            cpu: 700m
+            memory: 512Mi
+status: {}
